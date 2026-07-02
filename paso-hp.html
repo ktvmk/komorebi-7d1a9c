@@ -493,6 +493,8 @@ html{scroll-behavior:smooth;}
   .hero-cta{flex-direction:column !important;align-items:stretch !important;}
   .hero-cta a{width:100% !important;justify-content:center !important;}
   .hero-tags{flex-direction:column !important;align-items:flex-start !important;}
+  .hero-inner{padding-top:40px !important;}
+  .hero-pill{margin-top:6px !important;}
 }
 </style>
 <script>
@@ -504,7 +506,15 @@ html{scroll-behavior:smooth;}
       if(t.indexOf('※セクション')===0 && s.childElementCount===0) s.classList.add('sec-note');
     });
     var cta=document.querySelector('#dc-root a[href="#programs"]:not([data-nav-id])');
-    if(cta&&cta.parentElement) cta.parentElement.classList.add('hero-cta');
+    if(cta&&cta.parentElement){
+      cta.parentElement.classList.add('hero-cta');
+      var inner=cta.parentElement.parentElement;
+      if(inner){
+        inner.classList.add('hero-inner');
+        var pill=inner.querySelector('p');
+        if(pill) pill.classList.add('hero-pill');
+      }
+    }
     var tagsA=document.querySelector('#dc-root a[href="#npo"]:not([data-nav-id])');
     if(tagsA&&tagsA.parentElement) tagsA.parentElement.classList.add('hero-tags');
   }
