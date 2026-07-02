@@ -495,6 +495,7 @@ html{scroll-behavior:smooth;}
   .hero-tags{flex-direction:column !important;align-items:flex-start !important;}
   .hero-inner{padding-top:40px !important;}
   .hero-pill{margin-top:6px !important;}
+  .sec-note.hero-note{position:absolute !important;top:10px;left:14px;margin:0 !important;}
 }
 </style>
 <script>
@@ -513,6 +514,8 @@ html{scroll-behavior:smooth;}
         inner.classList.add('hero-inner');
         var pill=inner.querySelector('p');
         if(pill) pill.classList.add('hero-pill');
+        var heroSec=cta.closest('section');
+        if(heroSec){var hn=heroSec.querySelector('span.sec-note');if(hn)hn.classList.add('hero-note');}
       }
     }
     var tagsA=document.querySelector('#dc-root a[href="#npo"]:not([data-nav-id])');
