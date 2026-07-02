@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Paso（パソ）・はなこま ご案内</title>
+<style>
+  body{font-family:"Hiragino Sans","Yu Gothic",sans-serif;background:#f4efe7;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;}
+  .box{background:#fff;border-radius:16px;padding:36px 32px;box-shadow:0 4px 24px rgba(0,0,0,.1);max-width:340px;width:90%;text-align:center;}
+  h1{font-size:16px;margin:0 0 18px;color:#333;}
+  input{width:100%;box-sizing:border-box;padding:10px 12px;font-size:15px;border:1px solid #ccc;border-radius:8px;margin-bottom:12px;}
+  button{width:100%;padding:10px;font-size:15px;background:#2E9E4F;color:#fff;border:none;border-radius:8px;cursor:pointer;}
+  button:hover{background:#25803f;}
+  .err{color:#c0392b;font-size:13px;margin-top:10px;display:none;}
+</style>
+</head>
+<body>
+<div class="box">
+  <h1>Paso（パソ）・はなこま ご案内ページ</h1>
+  <input type="password" id="pw" placeholder="パスワード" autofocus>
+  <button onclick="check()">見る</button>
+  <div class="err" id="err">パスワードが違います</div>
+</div>
+<script>
+  async function sha256(text){
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+    return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+  }
+  const HASH = "5ad3f95feda0f0464caf330edc2afcf06f9c95556afd050b8222daf5f602589b";
+  async function check(){
+    const v = document.getElementById('pw').value;
+    const h = await sha256(v);
+    if(h === HASH){
+      location.href = 'paso-hp.html';
+    } else {
+      document.getElementById('err').style.display = 'block';
+    }
+  }
+  document.getElementById('pw').addEventListener('keydown', e => { if(e.key==='Enter') check(); });
+</script>
+</body>
+</html>
