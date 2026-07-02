@@ -503,9 +503,9 @@ html{scroll-behavior:smooth;}
       var t=(s.textContent||'').trim();
       if(t.indexOf('※セクション')===0 && s.childElementCount===0) s.classList.add('sec-note');
     });
-    var cta=document.querySelector('a[href="#programs"]:not([data-nav-id])');
+    var cta=document.querySelector('#dc-root a[href="#programs"]:not([data-nav-id])');
     if(cta&&cta.parentElement) cta.parentElement.classList.add('hero-cta');
-    var tagsA=document.querySelector('a[href="#npo"]:not([data-nav-id])');
+    var tagsA=document.querySelector('#dc-root a[href="#npo"]:not([data-nav-id])');
     if(tagsA&&tagsA.parentElement) tagsA.parentElement.classList.add('hero-tags');
   }
   function build(){
@@ -521,7 +521,7 @@ html{scroll-behavior:smooth;}
   var iv=setInterval(function(){
     tries++;
     var nav=document.getElementById('pasoNavScroll');
-    var hero=document.querySelector('a[href="#programs"]:not([data-nav-id])');
+    var hero=document.querySelector('#dc-root a[href="#programs"]:not([data-nav-id])');
     if((nav&&hero)||tries>40){clearInterval(iv);tag();build();}
   },200);
 })();
