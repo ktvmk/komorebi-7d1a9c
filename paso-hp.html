@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html><head>
 <meta charset="utf-8">
-<meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="HP_assets/react.production.min.js"></script>
 <script src="HP_assets/react-dom.production.min.js"></script>
 <script src="HP_assets/dc-runtime.js"></script>
 </head>
 <body>
+
+<button id="pasoMenuBtn" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+<nav id="pasoMenuPanel" aria-label="モバイルメニュー">
+  <a href="#top">ホーム</a>
+  <a href="#programs">プログラム</a>
+  <a href="#npo">アート連携</a>
+  <a href="#kenkyu">共同研究</a>
+  <a href="#sangaku">産学連携</a>
+  <a href="#schedule">1日の流れ</a>
+  <a href="#gallery">作品</a>
+  <a href="#access">アクセス</a>
+  <a href="#contact">お問い合わせ</a>
+</nav>
 
 <x-dc>
 <helmet>
@@ -62,7 +74,7 @@ a{color:inherit;}
       <h1 style="color:#fff;font-size:clamp(31px,6.6vw,54px);line-height:1.28;letter-spacing:.01em;text-shadow:0 2px 18px rgba(48,38,30,.4);margin:0;">一歩ずつ、<br>その子のペースで。</h1>
       <p style="color:rgba(255,255,255,.95);font-size:clamp(15px,2.4vw,18px);line-height:1.85;margin:16px 0 0;max-width:30em;text-shadow:0 1px 12px rgba(48,38,30,.5);">アートや遊びを通して、"できた!" をいっしょに。<br>子どもたちが安心して、自分のペースで過ごせる居場所です。</p>
       <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:26px;">
-        <a href="#contact" style="display:inline-flex;align-items:center;gap:8px;background:var(--accent,#E5843F);color:#fff;font-family:'Zen Maru Gothic';font-weight:700;text-decoration:none;padding:14px 26px;border-radius:999px;box-shadow:0 10px 24px rgba(126,169,106,.42);transition:transform .15s,box-shadow .15s;" style-hover="transform:translateY(-2px);box-shadow:0 14px 30px rgba(126,169,106,.52);">見学のお申し込み<span style="font-size:17px;">→</span></a>
+        <a href="#contact" style="display:inline-flex;align-items:center;gap:8px;background:var(--accent,#E5843F);color:#fff;font-family:'Zen Maru Gothic';font-weight:700;text-decoration:none;padding:14px 24px;border-radius:999px;box-shadow:0 10px 24px rgba(126,169,106,.42);transition:transform .15s,box-shadow .15s;" style-hover="transform:translateY(-2px);box-shadow:0 14px 30px rgba(126,169,106,.52);">見学のお申し込み<span style="font-size:17px;line-height:1;">→</span></a>
         <a href="#programs" style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.94);color:var(--accent-ink,#B5652A);font-family:'Zen Maru Gothic';font-weight:700;text-decoration:none;padding:14px 24px;border-radius:999px;box-shadow:0 6px 16px rgba(48,38,30,.2);transition:transform .15s;" style-hover="transform:translateY(-2px);">プログラムを見る</a>
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;">
@@ -347,7 +359,7 @@ a{color:inherit;}
       <div style="display:flex;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px 18px;"><span style="font-family:'Zen Maru Gothic';font-weight:700;color:var(--ink-strong);font-size:14px;width:64px;flex:none;">メール</span><span style="display:inline-block;font-size:12px;font-weight:700;color:var(--accent-ink);background:#F6E7CF;border:1px dashed #D7A76A;border-radius:999px;padding:2px 10px;">要確認</span></div>
       <div style="display:flex;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px 18px;"><span style="font-family:'Zen Maru Gothic';font-weight:700;color:var(--ink-strong);font-size:14px;width:64px;flex:none;">受付時間</span><span style="display:inline-block;font-size:12px;font-weight:700;color:var(--accent-ink);background:#F6E7CF;border:1px dashed #D7A76A;border-radius:999px;padding:2px 10px;">要確認</span></div>
     </div>
-    <a href="#top" style="display:inline-flex;align-items:center;gap:8px;margin-top:22px;background:var(--accent,#E5843F);color:#fff;font-family:'Zen Maru Gothic';font-weight:700;text-decoration:none;padding:15px 32px;border-radius:999px;box-shadow:0 10px 24px rgba(126,169,106,.4);transition:transform .15s,box-shadow .15s;" style-hover="transform:translateY(-2px);box-shadow:0 14px 30px rgba(126,169,106,.5);">見学を申し込む<span style="font-size:17px;">→</span></a>
+    <a href="#top" style="display:inline-flex;align-items:center;gap:8px;margin-top:22px;background:var(--accent,#E5843F);color:#fff;font-family:'Zen Maru Gothic';font-weight:700;text-decoration:none;padding:15px 32px;border-radius:999px;box-shadow:0 10px 24px rgba(126,169,106,.4);transition:transform .15s,box-shadow .15s;" style-hover="transform:translateY(-2px);box-shadow:0 14px 30px rgba(126,169,106,.5);">見学を申し込む<span style="font-size:17px;line-height:1;">→</span></a>
   </div>
 </section>
 
@@ -466,5 +478,53 @@ class Component extends DCLogic {
 }
 </script>
 
+<style>
+html{scroll-behavior:smooth;}
+#pasoMenuBtn{display:none;position:fixed;top:7px;right:10px;z-index:70;width:42px;height:36px;border-radius:12px;border:1px solid rgba(75,64,56,.18);background:#FFFCF6;cursor:pointer;padding:0;align-items:center;justify-content:center;flex-direction:column;gap:4px;box-shadow:0 2px 8px rgba(58,49,42,.08);}
+#pasoMenuBtn span{display:block;width:18px;height:2px;border-radius:2px;background:#4B4038;}
+#pasoMenuPanel{display:none;position:fixed;top:50px;right:10px;left:10px;z-index:69;background:#FFFCF6;border:1px solid rgba(75,64,56,.16);border-radius:16px;box-shadow:0 18px 40px rgba(58,49,42,.18);padding:8px;flex-direction:column;}
+#pasoMenuPanel a{display:block;padding:12px 16px;border-radius:10px;text-decoration:none;color:#4B4038;font-family:'Zen Maru Gothic','Zen Kaku Gothic New',sans-serif;font-weight:700;font-size:14.5px;border-bottom:1px solid rgba(75,64,56,.08);}
+#pasoMenuPanel a:last-child{border-bottom:none;}
+#pasoMenuPanel.open{display:flex;}
+@media (max-width:768px){
+  #pasoNavScroll{display:none !important;}
+  #pasoMenuBtn{display:flex;}
+  .sec-note{position:static !important;display:inline-block !important;margin:10px 0 0 14px;}
+  .hero-cta{flex-direction:column !important;align-items:stretch !important;}
+  .hero-cta a{width:100% !important;justify-content:center !important;}
+  .hero-tags{flex-direction:column !important;align-items:flex-start !important;}
+}
+</style>
+<script>
+(function(){
+  var NAV=[['#top','ホーム'],['#programs','プログラム'],['#npo','アート連携'],['#kenkyu','共同研究'],['#sangaku','産学連携'],['#schedule','1日の流れ'],['#gallery','作品'],['#access','アクセス'],['#contact','お問い合わせ']];
+  function tag(){
+    document.querySelectorAll('span').forEach(function(s){
+      var t=(s.textContent||'').trim();
+      if(t.indexOf('※セクション')===0 && s.childElementCount===0) s.classList.add('sec-note');
+    });
+    var cta=document.querySelector('a[href="#programs"]:not([data-nav-id])');
+    if(cta&&cta.parentElement) cta.parentElement.classList.add('hero-cta');
+    var tagsA=document.querySelector('a[href="#npo"]:not([data-nav-id])');
+    if(tagsA&&tagsA.parentElement) tagsA.parentElement.classList.add('hero-tags');
+  }
+  function build(){
+    var btn=document.getElementById('pasoMenuBtn');
+    var panel=document.getElementById('pasoMenuPanel');
+    if(!btn||!panel||btn.dataset.wired)return;
+    btn.dataset.wired='1';
+    panel.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){panel.classList.remove('open');});});
+    btn.addEventListener('click',function(e){e.stopPropagation();panel.classList.toggle('open');});
+    document.addEventListener('click',function(e){if(!panel.contains(e.target)&&!btn.contains(e.target))panel.classList.remove('open');});
+  }
+  var tries=0;
+  var iv=setInterval(function(){
+    tries++;
+    var nav=document.getElementById('pasoNavScroll');
+    var hero=document.querySelector('a[href="#programs"]:not([data-nav-id])');
+    if((nav&&hero)||tries>40){clearInterval(iv);tag();build();}
+  },200);
+})();
+</script>
 
 </body></html>
