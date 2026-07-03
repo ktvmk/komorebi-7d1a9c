@@ -496,6 +496,7 @@ html{scroll-behavior:smooth;}
   .hero-inner{padding-top:40px !important;}
   .hero-pill{margin-top:6px !important;}
   .sec-note.hero-note{position:absolute !important;top:10px;left:14px;margin:0 !important;}
+  .hero-sub{font-weight:700 !important;font-size:17px !important;color:#fff !important;text-shadow:0 1px 3px rgba(48,38,30,.9),0 2px 14px rgba(48,38,30,.6) !important;}
 }
 </style>
 <script>
@@ -514,6 +515,7 @@ html{scroll-behavior:smooth;}
         inner.classList.add('hero-inner');
         var pill=inner.querySelector('p');
         if(pill) pill.classList.add('hero-pill');
+        inner.querySelectorAll('p').forEach(function(pp){if((pp.textContent||'').indexOf('居場所です')>=0)pp.classList.add('hero-sub');});
         var heroSec=cta.closest('section');
         if(heroSec){var hn=heroSec.querySelector('span.sec-note');if(hn)hn.classList.add('hero-note');}
       }
